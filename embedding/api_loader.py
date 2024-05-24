@@ -60,7 +60,7 @@ class YamlLoader(BaseLoader):
         to yield documents one by one.
         """
         with open(self.file_path, encoding="utf-8") as f:
-            yaml_data = yaml.load(f)
+            yaml_data = yaml.load(f, Loader=yaml.FullLoader)
             # extracting paths
             for item in yaml_data['paths'].items():
                 item_str = str(item)

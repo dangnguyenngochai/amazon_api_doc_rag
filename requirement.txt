@@ -1,5 +1,7 @@
 langchain
+langchain_community
 qdrant_client
 langchain-cohere
 langchainhub
 gradio
+sentence_transformers

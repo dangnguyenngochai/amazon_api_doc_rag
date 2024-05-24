@@ -18,4 +18,5 @@ from retrieval_generation import retrieval_text
 from config import EMB_MODEL
 
 if __name__ == "__main__":
+    retrieval_text.test_run2()
     print("hello")

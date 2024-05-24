@@ -103,7 +103,7 @@ class EncodedApiDocVectorStore:
             relevants = retriever.invoke(query)
             return relevants
 
-def test_run() -> EncodedApiDocVectorStore:
+def test_run(run_query=False) -> EncodedApiDocVectorStore:
     api_data_paths = ['amazon_api_doc_rag/data/sponsored_brands_v4.json', 'amazon_api_doc_rag/data/sponsored_brands_v3.yaml']
     test_query = "Which is the api for listing the ads account?"
     model_name = "Alibaba-NLP/gte-large-en-v1.5"
@@ -125,11 +125,13 @@ def test_run() -> EncodedApiDocVectorStore:
             vstore.embeddings_apidocs(api_data_path, collection_name)
         
         # test query
-        print('Running test for querying the indexed data')
-        relevants = vstore.query_relevants(test_query, 3)
-        print(relevants)
+        if run_query:
+            print('Running test for querying the indexed data')
+            relevants = vstore.query_relevants(test_query, 3)
+            print(relevants)
 
         return vstore
+        
     except Exception as ex:
         print(ex)
 

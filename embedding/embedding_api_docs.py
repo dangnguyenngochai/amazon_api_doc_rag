@@ -117,7 +117,7 @@ def test_run(run_query=False) -> EncodedApiDocVectorStore:
     try:
 #         qdrant_client = QdrantClient(path='local_qdrant')
         qdrant_client = QdrantClient(location=':memory:')
-        vstore = EmcodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client)
+        vstore = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client)
         
         # test embeddings
         print("Test embedding API file")

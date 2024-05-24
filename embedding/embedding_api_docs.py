@@ -80,8 +80,8 @@ class EncodedApiDocVectorStore:
             documents = self.__load_apidoc_segments(api_data_path)
             
             print("Embedding...")
-            for i in range(0, len(documents), 10):
-                batch_docs = documents[i: i + 10]
+            for i in range(0, len(documents), 4):
+                batch_docs = documents[i: i + 4]
                 if self.vector_store is not None:
                     _ = self.vector_store.add_documents(batch_docs)
                 else:       

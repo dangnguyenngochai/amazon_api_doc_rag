@@ -1,5 +1,2 @@
-from . import (
-    embeddings_api_docs
-)
-
-from .embeddings_api_docs import EncodedApiDocVectorStore
+from .api_loader import *
+from .embeddings_api_docs import *

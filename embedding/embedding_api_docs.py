@@ -12,7 +12,7 @@ import pathlib
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
 # don't use relative import to save yourself from headache
-from api_loader import (
+from .api_loader import (
     YamlLoader, JsonLoader
 )
 

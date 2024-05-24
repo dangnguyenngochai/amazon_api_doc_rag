@@ -2,20 +2,19 @@
 
 import os
 import sys
+import embedding
+from embedding import (
+    api_loader,
+    embeddings_api_docs
+)
 
-
-sys.path.append('/embedding')
-sys.path.append('/retrieval_generation')
-
-from embedding import *
-from retrieval_generation import *
+import retrieval_generation
+from retrieval_generation import retrieval_text
 
 # from embeddings_api_docs import test_run
-from retrieval_generation import test_run2
+# from retrieval_generation import test_run2
 
 from config import EMB_MODEL
 
-
 if __name__ == "__main__":
-    print('test import')
-    test_run2()
+    print("hello")

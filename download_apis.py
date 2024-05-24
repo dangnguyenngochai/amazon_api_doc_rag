@@ -16,4 +16,4 @@ if __name__ == '__main__':
         file_name = item[0]
         url = item[1]
         file_type = url.split('/')[-1].split('.')[1]
-        os.system(f'cd data && wget {url} -O {file_name}.{file_type}'.format(url, file_name, file_type))
+        os.system(f'wget {url} -O data/{file_name}.{file_type}'.format(url, file_name, file_type))

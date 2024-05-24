@@ -11,9 +11,9 @@ from qdrant_client import QdrantClient
 import pathlib
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
-from api_loader import YamlLoader, JsonLoader
+from .api_loader import YamlLoader, JsonLoader
 
-class EmcodedApiDocVectorStore:
+class EncodedApiDocVectorStore:
     def __init__(self, collection_name, 
                  qdrant_client, 
                  model=None, 
@@ -26,7 +26,7 @@ class EmcodedApiDocVectorStore:
         if model is not None:
             self.emd_model = model
         else:
-            self.emb_model_name =HuggingFaceEmbeddings(
+            self.emd_model =HuggingFaceEmbeddings(
                 model_name=emb_model_name,
                 model_kwargs={
                     'trust_remote_code': True
@@ -72,18 +72,24 @@ class EmcodedApiDocVectorStore:
                 print("Api document is indexed")
                 return None
             
+            print("Load documents segments")
+            # Loading all documents into vector will overload the GPU memory
             documents = self.__load_apidoc_segments(api_data_path)
-
-            if self.vector_store is not None:
-                _ = self.vector_store.add_documents(documents)
-            else:       
-                self.vector_store = Qdrant.from_documents(
-                    documents,
-                    self.emd_model,
-#                     path=self.qdrant_local_path,
-                    location=':memory:',
-                    collection_name=collection_name
-                )
+            
+            print("Embedding...")
+            for i in range(0, len(documents), 10):
+                batch_docs = documents[i: i + 10]
+                if self.vector_store is not None:
+                    _ = self.vector_store.add_documents(batch_docs)
+                else:       
+                    self.vector_store = Qdrant.from_documents(
+                        batch_docs,
+                        self.emd_model,
+    #                     path=self.qdrant_local_path,
+                        location=':memory:',
+                        collection_name=collection_name
+                    )
+            print("Done")
         except Exception as ex:
             print(ex)
 
@@ -94,28 +100,30 @@ class EmcodedApiDocVectorStore:
             relevants = retriever.invoke(query)
             return relevants
 
-def test_run() -> EmcodedApiDocVectorStore:
-    api_data_path = ['data/sponsored_brands_v4.json', 'data/sponsored_brands_v3.yaml']
-    test_query = "Which is the api for listing the add account?"
+def test_run() -> EncodedApiDocVectorStore:
+    api_data_paths = ['amazon_api_doc_rag/data/accounts_billings.json', 'amazon_api_doc_rag/data/sponsored_brands_v3.yaml']
+    test_query = "Which is the api for listing the ads account?"
     model_name = "Alibaba-NLP/gte-large-en-v1.5"
 
     import sys
     sys.path.append('../')
-    from config import EMB_MODEL
-
+    # from config import EMB_MODEL
+    # EMB_MODEL = model_name
     collection_name = 'api_docs'
 
     try:
 #         qdrant_client = QdrantClient(path='local_qdrant')
         qdrant_client = QdrantClient(location=':memory:')
-        vstore = EmcodedApiDocVectorStore(model=EMB_MODEL, collection_name=collection_name, qdrant_client=qdrant_client)
+        vstore = EmcodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client)
         
         # test embeddings
-        vstore.embeddings_apidocs(api_data_path, collection_name)
+        print("Test embedding API file")
+        for api_data_path in api_data_paths:
+            vstore.embeddings_apidocs(api_data_path, collection_name)
         
         # test query
         print('Running test for querying the indexed data')
-        relevants = vstore.query_relevants(test_query, 1)
+        relevants = vstore.query_relevants(test_query, 3)
         print(relevants)
 
         return vstore

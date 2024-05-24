@@ -75,7 +75,7 @@ class YamlLoader(BaseLoader):
                     for item in v.items():
                         item_str = str(item)
                         yield Document(
-                                    page_content=schema_item_str,
+                                    page_content=item_str,
                                     metadata={"source": self.file_path},
                         )
           

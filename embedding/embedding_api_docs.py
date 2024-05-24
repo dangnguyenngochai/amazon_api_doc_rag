@@ -12,7 +12,9 @@ import pathlib
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
 # don't use relative import to save yourself from headache
-from .api_loader import YamlLoader, JsonLoader
+from .api_loader import (
+    YamlLoader, JsonLoader
+)
 
 class EncodedApiDocVectorStore:
     def __init__(self, collection_name, 

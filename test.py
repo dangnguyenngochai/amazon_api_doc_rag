@@ -11,4 +11,5 @@ from retrieval_generation import test_run2
 from config import EMB_MODEL
 
 if __name__ == "__main__":
+    print('test import')
     test_run2()

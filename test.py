@@ -3,9 +3,10 @@
 import os
 import sys
 import embedding
+
 from embedding import (
     api_loader,
-    embeddings_api_docs
+    embedding_api_docs
 )
 
 import retrieval_generation

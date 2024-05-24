@@ -1,0 +1,5 @@
+langchain
+qdrant_client
+langchain-cohere
+langchainhub
+gradio

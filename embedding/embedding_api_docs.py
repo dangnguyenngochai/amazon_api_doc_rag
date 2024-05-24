@@ -9,8 +9,9 @@ from langchain.schema import Document
 
 from qdrant_client import QdrantClient
 import pathlib
-from .api_loader import YamlLoader, JsonLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
+
+from api_loader import YamlLoader, JsonLoader
 
 class EmcodedApiDocVectorStore:
     def __init__(self, collection_name, 

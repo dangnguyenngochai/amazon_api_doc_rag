@@ -93,7 +93,7 @@ class EmcodedApiDocVectorStore:
             relevants = retriever.invoke(query)
             return relevants
 
-def test_run() -> EmcodedTranscriptpionVectorStore:
+def test_run() -> EmcodedApiDocVectorStore:
     api_data_path = ['data/sponsored_brands_v4.json', 'data/sponsored_brands_v3.yaml']
     test_query = "Which is the api for listing the add account?"
     model_name = "Alibaba-NLP/gte-large-en-v1.5"

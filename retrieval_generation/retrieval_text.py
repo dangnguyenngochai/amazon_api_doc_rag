@@ -26,6 +26,7 @@ def generate_response(vstore: EncodedApiDocVectorStore, query: str):
     
     # fetch prompt template
     prompt = hub.pull("rlm/rag-prompt")
+    print(prompt)
     retriever = vstore.get_retriever(5)
     llm = ChatCohere(model="command-r")
     rag_chain = (

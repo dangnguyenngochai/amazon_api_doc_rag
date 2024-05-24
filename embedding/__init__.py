@@ -1,5 +1,4 @@
 from . import (
-    api_loader,
     embeddings_api_docs
 )
 

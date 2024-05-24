@@ -1,6 +1,11 @@
 # from openai import OpenAI
 
 import os
+import sys
+
+
+sys.path.append('/embedding')
+sys.path.append('/retrieval_generation')
 
 from embedding import *
 from retrieval_generation import *
@@ -9,6 +14,7 @@ from retrieval_generation import *
 from retrieval_generation import test_run2
 
 from config import EMB_MODEL
+
 
 if __name__ == "__main__":
     print('test import')

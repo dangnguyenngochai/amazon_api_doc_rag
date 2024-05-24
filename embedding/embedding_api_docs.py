@@ -11,7 +11,8 @@ from qdrant_client import QdrantClient
 import pathlib
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
-from .api_loader import YamlLoader, JsonLoader
+# don't use relative import to save yourself from headache
+from embedding.api_loader import YamlLoader, JsonLoader
 
 class EncodedApiDocVectorStore:
     def __init__(self, collection_name, 
@@ -101,7 +102,7 @@ class EncodedApiDocVectorStore:
             return relevants
 
 def test_run() -> EncodedApiDocVectorStore:
-    api_data_paths = ['amazon_api_doc_rag/data/accounts_billings.json', 'amazon_api_doc_rag/data/sponsored_brands_v3.yaml']
+    api_data_paths = ['amazon_api_doc_rag/data/sponsored_brands_v4.json', 'amazon_api_doc_rag/data/sponsored_brands_v3.yaml']
     test_query = "Which is the api for listing the ads account?"
     model_name = "Alibaba-NLP/gte-large-en-v1.5"
 

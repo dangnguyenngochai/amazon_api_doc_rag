@@ -18,7 +18,7 @@ sys.path.append('/retrieval_generation')
 from embedding import EncodedApiDocVectorStore
 
 DEMO_VSTORE = None
-
+        
 def run_demo_ask_api(query):
     try:
         response = ask_api(query, DEMO_VSTORE)
@@ -34,7 +34,24 @@ def run_demo_summary(query):
     except Exception as ex:
         print(ex)
         print('Keep going !!! Almost there')
-
+        
+def run_demo_summary2():
+    try:
+        with open('amazon_api_concepts.txt', 'r') as f:
+            data = f.readlines()
+            response = ""
+            for i in range(len(data), 10):
+                concepts = data[i:i + 10]
+                query = f"Please give me the definitions for the following\n{concepts}"%concepts
+                
+                result = summary(query)
+                response = response + '\n' + result
+        return response
+    except Exception as ex:
+        print(ex)
+        print('Keep going !!! Almost there')
+        
+        
 title = """<h1 Ask API align="center"></h1>"""
 description = """<h5>This is the demo for Amazon Advertising API Assistant</h5>"""
 with gr.Blocks(title="Ask API Prototype 🎞️🍿",css=text_css ) as demo :
@@ -59,11 +76,12 @@ with gr.Blocks(title="Ask API Prototype 🎞️🍿",css=text_css ) as demo :
             with gr.Column():
                 question = gr.Textbox(label="Your Question", placeholder="Default: Amazon - Portfolio, Product, Campaign, Ad Group, Product Ad, Keyword")
                 process_button = gr.Button("Answer the Question (QA)")
-                
+                getall_button = gr.Button("Get me all the defintions")
             with gr.Column():
                 answer=gr.Text("Answer will be here",label="Ask-API's Answer")
         try:
             process_button.click(fn=run_demo_summary, inputs=[question], outputs=[answer])
+            getall_button.click(fn=run_demo_summary, inputs=[], outputs=[answer])
         except Exception as ex:
             print(ex)
        

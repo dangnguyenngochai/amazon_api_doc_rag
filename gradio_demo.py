@@ -75,8 +75,12 @@ if __name__ == "__main__":
     collection_name = 'api_docs'
     qdrant_client =QdrantClient(location=":memory:")
     vstore = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client, model=EMB_MODEL)
+    
     for file in os.listdir('data'):
         path = os.path.join('data', file)
         vstore.embeddings_apidocs(path, collection_name)
+        
+    DEMO_VSTORE = vstore
     print("Done")
+    
     demo.queue().launch(share=True,show_error=True, server_port=2411)

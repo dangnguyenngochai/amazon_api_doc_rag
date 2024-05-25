@@ -46,7 +46,7 @@ def run_demo_summary2():
                 concepts = data[i:i + 10]
                 query = f"Please give me the definitions for the following\n{concepts}"%concepts
                 result = summary(query)
-                result = result.split('\n')[1:-1]
+                result = '\n'.join(result.split('\n')[1:-1])
                 response = response + '\n' + result
         return response
     except Exception as ex:

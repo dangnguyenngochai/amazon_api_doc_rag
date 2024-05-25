@@ -6,7 +6,7 @@ from embedding import (
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
-from langchain_core.prompt import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 # from langchain_google_genai import (
 #     ChatGoogleGenerativeAI
 # )
@@ -96,7 +96,7 @@ def test_run2():
     print(response)
 def test_run3():
     query = "Which is the api for listing the ads account?"
-    response = generate_response(query, dummy_vt)
+    response = generate_response(query)
     print(response)
 if __name__ == '__main__':
     test_run2()

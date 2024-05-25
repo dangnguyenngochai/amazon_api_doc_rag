@@ -63,7 +63,7 @@ def generate_response(query: str, vstore: EncodedApiDocVectorStore = None):
     # fetch prompt template
     # prompt = hub.pull("rlm/rag-prompt")
 
-    if vstore is None:
+    if vstore is not None:
         mode = 'question_answer'
         prompt = prompt_generator(mode)
 
@@ -79,6 +79,8 @@ def generate_response(query: str, vstore: EncodedApiDocVectorStore = None):
         response = rag_chain.invoke(query)
     else:
         mode = 'summary'
+        prompt = prompt_generator(mode)
+        
         llm = ChatCohere(model="command-r")
         summary_chain = (
             {"question": RunnablePassthrough()}

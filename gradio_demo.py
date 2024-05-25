@@ -62,12 +62,14 @@ with gr.Blocks(title="Ask API Prototype 🎞️🍿",css=text_css ) as demo :
        
 if __name__ == "__main__":
     print("Setting things up....")
-    qdrant_client = QdrantClient(location=':memory:')
-    vstore = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client)
-    collection_name = 'api_docs'
+    
     _ = EMB_MODEL #load embedding model into memory
+
+    qdrant_client = QdrantClient(location=':memory:')
+    vstore = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client, model=EMB_MODEL)
+    collection_name = 'api_docs'
     for file in os.listdir('data'):
         path = os.path.join('data', file)
-        vstore.embeddings_apidocs(model=EMB_MODEL, path, collection_name)
+        vstore.embeddings_apidocs(path, collection_name)
     print("Done")
     demo.queue().launch(share=True,show_error=True, server_port=2411)

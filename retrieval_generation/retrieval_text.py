@@ -55,6 +55,8 @@ def prompt_generator(mode):
             ('human', "QUENSTION:\n{question}")
             ]
         )
+        return prompt
+        
         
 def generate_response(query: str, vstore: EncodedApiDocVectorStore = None): 
     def format_docs(docs):
@@ -96,9 +98,11 @@ def test_run2():
     dummy_vt = dummy_emb(run_query=False)
     response = generate_response(query, dummy_vt)
     print(response)
+    
 def test_run3():
-    query = "Which is the api for listing the ads account?"
+    query = "Campaign"
     response = generate_response(query)
     print(response)
+    
 if __name__ == '__main__':
     test_run2()

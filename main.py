@@ -20,9 +20,7 @@ from qdrant_client import QdrantClient
 
 from config import EMB_MODEL
 
-def ask_api(query):
-    qdrant_client = QdrantClient(location=':memory:')
-    vstore = EncodedApiDocVectorStore(collection_name='api_docs', qdrant_client=qdrant_client)
+def ask_api(query, vstore):
     response = retrieval_text.generate_response(query, vstore)
     return response
 

@@ -17,9 +17,11 @@ sys.path.append('/retrieval_generation')
 
 from embedding import EncodedApiDocVectorStore
 
+DEMO_VSTORE = None
+
 def run_demo_ask_api(query):
     try:
-        response = ask_api(query)
+        response = ask_api(query, DEMO_VSTORE)
         return response
     except Exception as ex:
         print(ex)
@@ -71,7 +73,7 @@ if __name__ == "__main__":
     _ = EMB_MODEL #load embedding model into memory
 
     collection_name = 'api_docs'
-    qdrant_client = QdrantClient(location=':memory:')
+    qdrant_client =QdrantClient(location=":memory:")
     vstore = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client, model=EMB_MODEL)
     for file in os.listdir('data'):
         path = os.path.join('data', file)

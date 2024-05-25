@@ -37,13 +37,14 @@ def run_demo_summary(query):
         
 def run_demo_summary2():
     try:
+        response = ""
         with open('amazon_api_concepts.txt', 'r') as f:
+            print('testing')
             data = f.readlines()
-            response = ""
-            for i in range(len(data), 10):
+            print(data)
+            for i in range(0, len(data), 10):
                 concepts = data[i:i + 10]
                 query = f"Please give me the definitions for the following\n{concepts}"%concepts
-                
                 result = summary(query)
                 response = response + '\n' + result
         return response
@@ -81,7 +82,7 @@ with gr.Blocks(title="Ask API Prototype 🎞️🍿",css=text_css ) as demo :
                 answer=gr.Text("Answer will be here",label="Ask-API's Answer")
         try:
             process_button.click(fn=run_demo_summary, inputs=[question], outputs=[answer])
-            getall_button.click(fn=run_demo_summary2, outputs=[answer])
+            getall_button.click(fn=run_demo_summary2, inputs=[], outputs=[answer])
         except Exception as ex:
             print(ex)
        

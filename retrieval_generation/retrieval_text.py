@@ -40,11 +40,15 @@ def prompt_generator(mode):
             ]
         )
         return prompt
-    else mode=='summary':
+    elif mode=='summary':
         sys_message = """
         SYSTEM:
         You are an expert on the Amazon Advertising API and provide concise and accurate answers on the subject. 
-        You are tasked with providing definitions for Amazon Advertising API objects and concepts. 
+        You are tasked with providing definitions for Amazon Advertising API objects and concepts.
+        Your answer will follow the following format:
+
+        <Concept>:<Definition>
+        
         If the mentioned objects or concepts do not exist in the documentation of the Amazon Advertising API, you have to say that they do not exist."""
         prompt = ChatPromptTemplate.from_messages([
             ('system', sys_message),
@@ -52,7 +56,7 @@ def prompt_generator(mode):
             ]
         )
         
-def generate_response(, query: str, vstore: EncodedApiDocVectorStore = None): 
+def generate_response(query: str, vstore: EncodedApiDocVectorStore = None): 
     def format_docs(docs):
         return "\n\n".join(doc.page_content for doc in docs)
     

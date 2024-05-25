@@ -81,7 +81,7 @@ with gr.Blocks(title="Ask API Prototype 🎞️🍿",css=text_css ) as demo :
                 answer=gr.Text("Answer will be here",label="Ask-API's Answer")
         try:
             process_button.click(fn=run_demo_summary, inputs=[question], outputs=[answer])
-            getall_button.click(fn=run_demo_summary, inputs=[], outputs=[answer])
+            getall_button.click(fn=run_demo_summary2, inputs=[], outputs=[answer])
         except Exception as ex:
             print(ex)
        

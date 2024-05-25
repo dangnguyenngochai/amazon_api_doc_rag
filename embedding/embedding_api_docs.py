@@ -1,15 +1,10 @@
 from langchain_community.vectorstores import Qdrant
-from langchain_community.document_loaders import TextLoader
-from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.schema import Document
-
-# import torch.nn.functional as F
-# from transformers import AutoModel, AutoTokenizer
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 from qdrant_client import QdrantClient
 import pathlib
-from langchain_community.embeddings import HuggingFaceEmbeddings
 
 # don't use relative import to save yourself from headache
 from .api_loader import (

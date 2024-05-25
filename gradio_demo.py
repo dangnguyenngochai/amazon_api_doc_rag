@@ -1,5 +1,5 @@
 import sys
-
+import os
 import gradio as gr
 import gradio_app
 from gradio_app.theme import minigptlv_style, custom_css,text_css
@@ -9,8 +9,13 @@ from main import (
     ask_api,
     summary
 )
+
+from qdrant_client import QdrantClient
+
 sys.path.append('/embedding')
 sys.path.append('/retrieval_generation')
+
+from embedding import EncodedApiDocVectorStore
 
 def run_demo_ask_api(query):
     try:
@@ -44,7 +49,7 @@ with gr.Blocks(title="Ask API Prototype 🎞️🍿",css=text_css ) as demo :
             with gr.Column():
                 answer_local=gr.Text("Answer will be here",label="Ask-API's Answer")
         try:
-            process_button_local.click(fn=run_demo_local_video, inputs=[video_player_local, question_local], outputs=[answer_local])
+            process_button_local.click(fn=run_demo_ask_api, inputs=[question_local], outputs=[answer_local])
         except Exception as ex:
             print(ex)
     with gr.Tab("Summary for me"):
@@ -56,7 +61,7 @@ with gr.Blocks(title="Ask API Prototype 🎞️🍿",css=text_css ) as demo :
             with gr.Column():
                 answer=gr.Text("Answer will be here",label="Ask-API's Answer")
         try:
-            process_button.click(fn=run_demo_youtube_video, inputs=[youtube_link, question], outputs=[answer])
+            process_button.click(fn=run_demo_summary, inputs=[question], outputs=[answer])
         except Exception as ex:
             print(ex)
        
@@ -65,9 +70,9 @@ if __name__ == "__main__":
     
     _ = EMB_MODEL #load embedding model into memory
 
+    collection_name = 'api_docs'
     qdrant_client = QdrantClient(location=':memory:')
     vstore = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client, model=EMB_MODEL)
-    collection_name = 'api_docs'
     for file in os.listdir('data'):
         path = os.path.join('data', file)
         vstore.embeddings_apidocs(path, collection_name)

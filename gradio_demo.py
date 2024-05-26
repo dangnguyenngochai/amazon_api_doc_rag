@@ -50,8 +50,16 @@ def run_demo_summary2():
                 result = '\n'.join(result.split('\n')[1:-1])
                 response = response + '\n' + result
                 
-        with open("output/amazon_api_concepts_def.txt", 'w+') as f:
-            f.writelines(response)
+        with open("output/amazon_api_concepts_def.csv", 'w+') as f:
+            for item in response.split('\n'):
+                item = item.strip()
+                item = item.split(':')
+                if len(item) == 2:
+                    f.writelines(','.join(item))
+                    f.writelines('\n')
+                else:
+                    print('This should not happen')
+                    print("Wrong response", item)
             
         return response
     except Exception as ex:

@@ -19,13 +19,17 @@ from embedding import EncodedApiDocVectorStore
 
 import argparse
 
-DEMO_VSTORE = None
+DEMO_VSTORE_APIS = None
+DEMO_VSTORE_CONCEPTS = None
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--mode', type=str, default='test')  
 def run_demo_ask_api(query):
     try:
-        response = ask_api(query, DEMO_VSTORE)
+        if 'api' in query.lower():
+            response = ask_api(query, DEMO_VSTORE_APIS)
+        else:
+            response = ask_api(query, DEMO_VSTORE_CONCEPTS)
         return response
     except Exception as ex:
         print(ex)
@@ -120,23 +124,24 @@ if __name__ == "__main__":
     collection_name = 'api_docs'
     
     qdrant_client = QdrantClient(location=":memory:")
-    vstore = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client, model=EMB_MODEL)
+    vstore_api = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client, model=EMB_MODEL)
     
     for file in os.listdir(data_path):
         path = os.path.join(data_path, file)
         print(path)
-        vstore.embeddings_apidocs(path, collection_name)
+        vstore_api.embeddings_apidocs(path, collection_name)
     
     # embedding definition docs
     collection_name = 'concepts_docs'
-
+    vstore_concepts = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client, model=EMB_MODEL)
     data_path = 'output'    
     for file in os.listdir(data_path):
         path = os.path.join(data_path, file)
         print(path)
-        vstore.embeddings_apidocs(path, collection_name)
+        vstore_concepts.embeddings_apidocs(path, collection_name)
         
-    DEMO_VSTORE = vstore
+    DEMO_VSTORE_APIS = vstore_api
+    DEMO_VSTORE_CONCEPTS = vstore_concepts
     print("Done")
     
     demo.queue().launch(share=True,show_error=True, server_port=2411)

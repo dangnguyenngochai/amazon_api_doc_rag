@@ -1,0 +1,99 @@
+ Budget rules, A set of automated controls that help manage your campaigns' budgets. Rules can be set to increase or decrease the daily budget based on historical performance. 
+ Third-party creatives, Visual assets or advertisements created by a third party and uploaded to the Amazon Advertising platform for use in campaigns. 
+ Recommendations & insights, A feature providing advertisers with insights into their campaigns and product performance, along with recommendations to optimize strategies. 
+ Campaigns, A collection of ad groups, keywords, and ads that share a daily budget and other settings. It's the highest level of organization in Amazon Advertising. 
+ Results, A section in the Amazon Advertising interface that provides a performance summary of a campaign, allowing advertisers to view metrics and analyze the effectiveness of their campaigns. 
+ Product targeting, A feature that allows advertisers to target their ads to specific products or product categories on Amazon. 
+ Creatives, Visual assets or advertisements that are displayed as part of a campaign. They can include text, images, videos, and links to the advertiser's website. 
+ Budget usage, A metric that shows how effectively a campaign utilizes its allocated budget. It helps advertisers understand the pace of spending and the remaining budget. 
+ Tags, A feature that allows advertisers to add additional information or labels to their campaigns, ad groups, and ads for organization and identification. 
+ User deletion, A process to anonymize or delete user data associated with an Amazon Advertising account, often related to privacy and data removal requests. 
+ Amazon Attribution, A service that helps you understand how your advertising drives sales and brand awareness by linking sales and other key metrics to your advertising activities.
+ Ad creatives, Visual elements and text that appear in your ads. They are the actual advertisements shown to customers, which can be created and customized in various ways.
+ Measurement, No definition available. However, it is likely related to the measurement of ad performance or campaign success.
+ Moderation, The process of reviewing and approving ad creatives, ensuring they adhere to Amazon's guidelines and policies before going live. 
+ Campaign negative keywords, Keywords that are specifically excluded from triggering your ads. They allow you to have more control over when and where your ads appear.
+ Portfolios, A collection or group of campaigns or ads. They help organize and manage multiple campaigns or ads in one place.
+ Data provider, A company or entity that provides access to audience data or measurement data. Data providers enable advertisers to target specific audiences and measure ad performance.
+ Reporting, The process of generating detailed reports on ad performance, providing insights into the success and results of advertising campaigns. 
+ Negative keywords, Keywords that prevent your ad from being shown when certain words or phrases are searched. They help you focus your ads on relevant searches. 
+ Amazon Marketing Stream, A service that helps advertisers gain insights into customer behavior and ad performance by providing a continuous feed of anonymized and aggregated data. 
+ Brand Safety Deny List Domains, A list of domains that are denied brand safety. It allows advertisers to block their ads from appearing on websites that don't align with their brand image or are potentially harmful to their reputation.
+ Line Item Creative Association, Associates a creative with a specific line item. A line item represents a significant aspect of a campaign, and creative refers to the actual ad content.
+ Product Recommendations, A feature that allows advertisers to show product recommendations to customers based on their shopping behavior. It helps personalize the advertising experience.
+ Partner Opportunities, A feature that provides advertisers with additional ways to work with Amazon's advertising partners. It can help reach new audiences and increase brand awareness.
+ Forecasts, A tool that provides estimates and insights into the potential performance of advertising campaigns. It helps advertisers plan and optimize their campaigns by predicting clicks, impressions, and spend.
+ Keywords, Words or phrases that describe the content of an ad or a website. Keywords play a crucial role in determining the relevance and placement of ads.
+ Billing, Manages the financial aspect of advertising. It includes features like budget management, invoicing, and payment processing. Advertisers can control their spending and monitor costs using billing tools.
+ Brand Safety Request Results, The results of brand safety requests, which allow advertisers to gain insights into the brand safety status of their campaigns.
+ Product Ads, Ads that promote individual products or services. These ads can include images, videos, or text, and are often highly targeted, showing up in places like Amazon's search results or product pages.
+ Ads, A broad term referring to the creative and visible aspect of advertising. Ads are the visible output of an advertising campaign, designed to promote a brand, product, or service. They can take many forms, including textual, graphical, or video content. 
+Some of the concepts you provided are not defined in the Amazon Advertising API documentation, such as,
+ Brand Safety Request Results, Apparently, there is no mention of this term in the documentation. It may be a custom feature or related to an external API.
+ Video creatives, Video creatives are self-contained media assets used in Amazon's sponsored ads. They can be uploaded as part of a campaign creation or later added to existing campaigns. 
+ Budget rules recommendations, This concept does not exist in the Amazon Advertising API documentation. 
+ Recommendations, A feature within the Amazon Advertising API that provides advertisers with suggested bids and budgets to use for campaigns, based on their historical performance and goals. 
+ Brands, A collection of one or more campaigns within the Amazon Advertising API, helping advertisers manage and organize their ads efficiently. 
+ Sponsored Display, A Amazon Advertising API campaign type that serves visual ads on Amazon's display network, including native ads on Fire TV. These ads can be image- or video-based. 
+ Test accounts, Amazon Advertising API supports the creation of test accounts that mirror the behavior of real customer accounts, allowing advertisers to test their campaigns in a controlled environment. 
+ Publishers, External websites or apps where Sponsored Ads can be placed through the Amazon Advertising API. These are the locations where your ads will be displayed. 
+ Insights, A feature within the API that provides advertisers with actionable metrics and visualizations to understand their campaign performance, helping them make data-driven decisions. 
+ Budget recommendations (new campaigns), The Amazon Advertising API can provide recommendations for budget allocation when setting up new campaigns, based on the target audience and campaign goals. 
+ History, A tab within the API interface that allows advertisers to view and analyze their campaign history, including past performance and adjustments made. 
+ Orders, A centralized place to view and manage orders, manage cancellations and returns, and view and download order reports.
+ Records, This concept does not exist in the Amazon Advertising API documentation.
+ Ads accounts, A named entity that allows access to Amazon Advertising APIs and is tied to a specific Amazon seller or vendor account.
+ Reports, Provides access to different reports available through the Amazon Advertising API, allows to download them in various formats and frequencies and manage report delivery methods.
+ Accounts, This concept might refer to the advertiser account through which API requests are made and authorized.
+ Targeting, Enables advertisers to deliver their ads to specific audiences on and off Amazon. Different targeting options include device targeting, location targeting, and retargeting.
+ Brand metrics, A collection of brand-building metrics that help advertisers measure the effectiveness of their campaigns. Includes metrics such as Brand Awareness, Consideration, and Conversion.
+ Negative targeting, The ability to exclude certain audiences or products from seeing your ads. Allows for a more precise campaign targeting strategy.
+ Products, A catalog of products that advertisers can use to create product-customized ads.
+ Conversions, This concept might refer to the tracking of conversions or the measurement of the success of advertising campaigns, but the full definition is not present in the Amazon Advertising API documentation. 
+ Product Targeting Categories, Product targeting categories are a way to target ads to specific categories of products offered by Amazon. 
+ Brand Safety Request Statuses, Brand safety refers to the practice of ensuring that your brand is not associated with unsafe or inappropriate content. Request statuses relate to the approval process for brand safety; however, there is no specific information about the statuses available.
+ Responsive Ecommerce Creatives, These are creatives that adapt to the layout and available space of the publisher's web page to provide a seamless shopping experience. They are designed to respond to different ad slot sizes.
+ Unified Pre-Moderation, A process where Amazon reviews and approves ads based on brand safety and suitability guidelines before they are served on the platform. It ensures that the ads meet Amazon's standards and provides a seamless customer experience.
+ Profiles, No specific definition could be found, but in general, a profile could be a representation of a user's preferences, characteristics, and behavior data across platforms or a specific settings configuration for an ad campaign. 
+ Metadata, Data that provides information about other data, giving context or additional details. In advertising, it could include keywords, phrases, or descriptions enhancing ad visibility and targeting.
+ Campaign Negative Targeting, Refers to the ability to exclude or negatively target specific demographics, interests, or other targeting parameters for a campaign. It allows advertisers to focus their ads on specific audiences while avoiding others.
+ Hashed Records, A hashed record is created when a customer visits an Amazon detail page. They are used for customer insights and to measure ad performance. 
+ Targeting Recommendations, A feature that provides suggestions to improve the reach and effectiveness of an ad campaign by recommending additional targeting criteria based on the campaign's current performance. 
+ Creative Headline Recommendations, A form of AI-powered creative optimization that generates recommendations for ad headlines to improve click-through rates and conversion. 
+ Tactical Recommendations, A set of bid and budget adjustments that Amazon Advertising API provides to help you optimize performance and improve ROI.
+ Subscriptions, A feature that allows you to retrieve data from Amazon Advertising API at a specified interval. You can subscribe to different data feeds and choose the frequency at which you want to receive updates.
+ Keyword Recommendations, A tool within Amazon Advertising API that suggests new keywords for your campaigns based on historical performance and other signals. It helps you discover new opportunities and expand your keyword coverage.
+ Budget Recommendations, Amazon Advertising API provides recommendations on how much budget you should consider for your campaigns based on your advertising goals and historical performance.
+ Assets, In the context of Amazon Advertising API, assets likely refer to the visual and creative elements associated with your ads, such as images, videos, and text.
+ Exports, A feature that allows you to download and export data from Amazon Advertising API in a structured format (e.g., CSV). You can export various types of reports for offline analysis and reporting.
+ Sponsored Brands, A type of Amazon Advertising API campaign focused on brand awareness and discovery. These campaigns allow you to promote your brand and products with headline search ads and sponsored brand videos.
+ Eligibility, This concept might refer to the requirements or criteria that need to be met to use certain features or capabilities within Amazon Advertising API. For example, eligibility criteria for specific ad formats or targeting options.
+ Discovery, Could refer to the process of discovering and exploring advertising opportunities within Amazon's ecosystem. This may include discovering relevant keywords, products, or audience segments to target.
+ Ad Groups, A container for organizing and managing your ads within a campaign in Amazon Advertising API. Ad groups hold individual ads, keywords, and bids, allowing you to stay organized and track performance at a granular level. 
+ Advertisers, A advertiser is a entity that creates and manages campaigns, ad groups, and ads. It appears as a top-level node in the hierarchy of Amazon Advertising API objects.
+ Change history, A feature that allows you to see the changes made to your campaigns over time.
+ Stores, A physical location where a business conducts transactions and holds inventory. 
+ Locations, Refers to the geographic locations that can be targeted by Amazon ads. 
+ Snapshots, Does not exist.
+ Stores analytics, Data relating to the performance of a physical store, which can be used to measure the real-world impact of advertising campaigns.
+ Budget recommendations (existing campaigns), Amazon Advertising API does not have the ability to provide budget recommendations. Budget management is a feature that allows you to set and adjust campaign budgets. 
+ Campaign optimization rules, A feature that allows you to set automated rules to adjust and optimize your campaigns, ad groups, and ads based on specified conditions and actions.
+ Audience insights, Demographic and behavioral data about the audiences that you are targeting with your campaigns, helping you understand your target audience's characteristics and behaviors.
+ Line items, A form of ad placement where the ad appears within the publisher's content, often referred to as native advertising. 
+ Account budgets, A feature that allows you to set up and manage budgets at the account level, enabling better budget control and flexibility.
+ File uploads, A feature that enables bulk uploading of creative assets and other data to Amazon's servers, facilitating efficient campaign management.
+ Target KPI recommendations, A tool that provides recommendations to help advertisers optimize their campaigns based on their target key performance indicators (KPIs).
+ Manager accounts, An account type that allows advertising agencies or experts to manage multiple client accounts from a central location, offering a hierarchical structure for efficient account management.
+ Sponsored Products, A type of Amazon ad that promotes individual products to customers, helping sellers highlight their listings and increase visibility.
+ Image creatives, Visual assets or graphics that advertisers can upload and use as visual components in their ad campaigns, providing a visual representation of their products or services.
+ Landing page ASINs, The Amazon Standard Identification Numbers (ASINs) of the product detail pages where customers land when they click on an ad.
+ Asynchronous reporting (Version 3), A reporting API that allows programmers to retrieve campaign data asynchronously, providing efficient and flexible data retrieval options.
+ Amazon DSP, Does not exist.
+ Domain targeting, A targeting option that allows advertisers to reach audiences based on the websites or domains they visit, enabling them to create targeted ad campaigns. 
+ Persona Builder, A feature that allows advertisers to create and edit personas, which are targeted segments based on demographics, interests, and behavior.
+ Bid Recommendations, A tool that provides suggestions for adjusting bid amounts to help advertisers achieve their goals, such as maximizing clicks or converting within a set cost.
+ Brand Safety List, A customizable list of websites or apps where advertisers can control their ads' placement to maintain brand safety and suitability.
+ Negative Product Targeting, A feature that lets advertisers exclude their ads from being shown to users searching for specific products, categories, or brands, helping to focus ad campaigns.
+ Consolidated Recommendations, A report that aggregates and highlights opportunities to improve campaign performance, providing a concise list of actions for advertisers.
+ Suggested Keywords, A keyword research tool that offers a list of potential keywords related to a seed keyword or phrase, helping advertisers expand their keyword coverage.
+ Audiences, A feature that allows advertisers to target or exclude specific groups of audiences based on their attributes, such as age, gender, interests, or purchase behavior. 

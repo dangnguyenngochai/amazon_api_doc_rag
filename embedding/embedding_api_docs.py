@@ -1,4 +1,5 @@
 from langchain_community.vectorstores import Qdrant
+from langchain_community.document_loaders import TextLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.schema import Document
 from langchain_community.embeddings import HuggingFaceEmbeddings
@@ -8,7 +9,8 @@ import pathlib
 
 # don't use relative import to save yourself from headache
 from .api_loader import (
-    YamlLoader, JsonLoader
+    YamlLoader, 
+    JsonLoader
 )
 
 class EncodedApiDocVectorStore:
@@ -43,7 +45,8 @@ class EncodedApiDocVectorStore:
     def __load_loader(self,ext):
         support_ext = {
             '.yaml': YamlLoader,
-            '.json': JsonLoader
+            '.json': JsonLoader,
+            '.csv': TextLoader
         }
         if support_ext.get(ext, False):
             return support_ext.get(ext)

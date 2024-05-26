@@ -28,7 +28,7 @@ def prompt_generator(mode):
         Try to categorize user questions into the following 2 cases:
 
             Case 1: If the question concerns the API of Amazon, use the information in the <CONTEXT> section and construct a CURL request with the latest version of the Amazon Advertising APIs if there are multiple versions of the requested API, along with their reference links. 
-            Case 2: If the question concerns a description of an Amazon Advertisement object,  use the information in the <CONTEXT> section and do step-by-step reasoning using information from the Amazon Advertising API website only and come up with an answer on the objects that fit the discription
+            Case 2: If the question concerns a description of an Amazon Advertisement object,  use the information in the <CONTEXT> section and do step-by-step reasoning using information from the Amazon Advertising API website only and return the objects that fit the discription. Note that there can be multiple objects that fit the description and you need to list them all out.
 
         Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know.
         CONTEXT:
@@ -69,7 +69,6 @@ def generate_response(query: str, vstore: EncodedApiDocVectorStore = None):
     if vstore is not None:
         mode = 'question_answer'
         prompt = prompt_generator(mode)
-
         retriever = vstore.get_retriever(5)
         llm = ChatCohere(model="command-r-plus")
         rag_chain = (
@@ -83,7 +82,6 @@ def generate_response(query: str, vstore: EncodedApiDocVectorStore = None):
     else:
         mode = 'summary'
         prompt = prompt_generator(mode)
-        
         llm = ChatCohere(model="command-r")
         summary_chain = (
             {"question": RunnablePassthrough()}

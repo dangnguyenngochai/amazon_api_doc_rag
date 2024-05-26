@@ -17,8 +17,12 @@ sys.path.append('/retrieval_generation')
 
 from embedding import EncodedApiDocVectorStore
 
+import argparse
+
 DEMO_VSTORE = None
-        
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--mode', type=str, default='test')  
 def run_demo_ask_api(query):
     try:
         response = ask_api(query, DEMO_VSTORE)
@@ -102,6 +106,12 @@ with gr.Blocks(title="Ask API Prototype 🎞️🍿",css=text_css ) as demo :
             print(ex)
        
 if __name__ == "__main__":
+    args = parser.parse_args()
+    if args.mode == 'test':
+        data_path = 'test_data'
+    elif args.mode == 'demo':
+        data_path = 'data'
+        
     print("Setting things up....")
     
     _ = EMB_MODEL #load embedding model into memory
@@ -110,8 +120,8 @@ if __name__ == "__main__":
     qdrant_client =QdrantClient(location=":memory:")
     vstore = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client, model=EMB_MODEL)
     
-    for file in os.listdir('test_data'):
-        path = os.path.join('test_data', file)
+    for file in os.listdir(data_path):
+        path = os.path.join(data_path, file)
         vstore.embeddings_apidocs(path, collection_name)
         
     DEMO_VSTORE = vstore

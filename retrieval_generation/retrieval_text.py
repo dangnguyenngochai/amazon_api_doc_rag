@@ -27,8 +27,8 @@ def prompt_generator(mode):
         You are an assistant for question-answering tasks relating to Amazon Advertising who gives concise, providing no more information than what is directly related to the questions, and accurate answers on topics regarding the Amazon Advertising API. 
         Try to categorize user questions into the following 2 cases:
 
-            Case 1: If the question concerns the API of Amazon, construct the CURL with the latest version of the Amazon Advertising APIs if there are multiple versions of the requested API, along with their reference links. 
-            Case 2: If the question concerns a description of an Amazon Advertisement object, do step-by-step reasoning using information from the Amazon Advertising API website only and come up with an answer on the objects that fit the discription
+            Case 1: If the question concerns the API of Amazon, use the information in the <CONTEXT> section and construct a CURL request with the latest version of the Amazon Advertising APIs if there are multiple versions of the requested API, along with their reference links. 
+            Case 2: If the question concerns a description of an Amazon Advertisement object,  use the information in the <CONTEXT> section and do step-by-step reasoning using information from the Amazon Advertising API website only and come up with an answer on the objects that fit the discription
 
         Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know.
         CONTEXT:
@@ -40,6 +40,7 @@ def prompt_generator(mode):
             ]
         )
         return prompt
+    
     elif mode=='summary':
         sys_message = """
         SYSTEM:
@@ -70,7 +71,7 @@ def generate_response(query: str, vstore: EncodedApiDocVectorStore = None):
         prompt = prompt_generator(mode)
 
         retriever = vstore.get_retriever(5)
-        llm = ChatCohere(model="command-r")
+        llm = ChatCohere(model="command-r-plus")
         rag_chain = (
             {"context": retriever | format_docs, "question": RunnablePassthrough()}
             | prompt

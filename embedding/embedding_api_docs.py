@@ -46,7 +46,7 @@ class EncodedApiDocVectorStore:
         support_ext = {
             '.yaml': YamlLoader,
             '.json': JsonLoader,
-            '.csv': TextLoader
+            '.txt': TextLoader
         }
         if support_ext.get(ext, False):
             return support_ext.get(ext)

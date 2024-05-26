@@ -96,8 +96,8 @@ if __name__ == "__main__":
     qdrant_client =QdrantClient(location=":memory:")
     vstore = EncodedApiDocVectorStore(collection_name=collection_name, qdrant_client=qdrant_client, model=EMB_MODEL)
     
-    for file in os.listdir('data'):
-        path = os.path.join('data', file)
+    for file in os.listdir('test_data'):
+        path = os.path.join('test_data', file)
         vstore.embeddings_apidocs(path, collection_name)
         
     DEMO_VSTORE = vstore

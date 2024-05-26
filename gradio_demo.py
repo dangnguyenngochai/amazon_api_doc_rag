@@ -38,6 +38,7 @@ def run_demo_summary(query):
 def run_demo_summary2():
     try:
         response = ""
+        
         with open('amazon_api_concepts.txt', 'r') as f:
             print('testing')
             data = f.readlines()
@@ -48,6 +49,10 @@ def run_demo_summary2():
                 result = summary(query)
                 result = '\n'.join(result.split('\n')[1:-1])
                 response = response + '\n' + result
+                
+        with open("output/amazon_api_concepts_def.txt", 'w+') as f:
+            f.writelines(response)
+            
         return response
     except Exception as ex:
         print(ex)

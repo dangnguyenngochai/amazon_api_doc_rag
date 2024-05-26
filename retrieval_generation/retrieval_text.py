@@ -92,8 +92,6 @@ def generate_response(query: str, vstore: EncodedApiDocVectorStore = None):
             | StrOutputParser()
         )
         response = summary_chain.invoke(query)
-        with open("output/amazon_api_concepts_def.txt", 'w+') as f:
-            f.writelines(response)
     return response
 
 def test_run2():

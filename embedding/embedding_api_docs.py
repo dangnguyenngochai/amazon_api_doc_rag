@@ -50,7 +50,7 @@ class EncodedApiDocVectorStore:
         }
         if support_ext.get(ext, False):
             return support_ext.get(ext)
-        else: 
+        else:
             print("Loader cannot be loader, check your file type")
 
     def __load_apidoc_segments(self,api_data_path: str) -> list[Document]:

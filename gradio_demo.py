@@ -124,6 +124,7 @@ if __name__ == "__main__":
     
     for file in os.listdir(data_path):
         path = os.path.join(data_path, file)
+        print(path)
         vstore.embeddings_apidocs(path, collection_name)
     
     # embedding definition docs
@@ -132,6 +133,7 @@ if __name__ == "__main__":
     data_path = 'output'    
     for file in os.listdir(data_path):
         path = os.path.join(data_path, file)
+        print(path)
         vstore.embeddings_apidocs(path, collection_name)
         
     DEMO_VSTORE = vstore
